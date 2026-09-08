@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glimpse — Image Search</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Dark/light toggle, CSS-only: this checkbox must stay the
+       immediately-preceding sibling of .site for the theme
+       override in styles.css to work. -->
+  <input type="checkbox" id="theme-toggle" class="theme-toggle-input">
+
+  <div class="site">
+
+    <!-- ============================================
+         HEADER
+    ============================================ -->
+    <header class="site-header">
+      <div class="wrap">
+        <a href="/" class="logo">Gl<span>i</span>mpse</a>
+        <div class="header-right">
+          <span class="header-meta">Image search</span>
+          <label for="theme-toggle" class="theme-toggle-btn" aria-label="Toggle light and dark mode">
+            <span class="toggle-track-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><line x1="12" y1="2" x2="12" y2="4"></line><line x1="12" y1="20" x2="12" y2="22"></line><line x1="4.9" y1="4.9" x2="6.3" y2="6.3"></line><line x1="17.7" y1="17.7" x2="19.1" y2="19.1"></line><line x1="2" y1="12" x2="4" y2="12"></line><line x1="20" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="19.1" x2="6.3" y2="17.7"></line><line x1="17.7" y1="6.3" x2="19.1" y2="4.9"></line></svg>
+            </span>
+            <span class="toggle-track-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path></svg>
+            </span>
+            <span class="toggle-thumb"></span>
+          </label>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================================
+         HERO + SEARCH
+    ============================================ -->
+    <section class="hero">
+      <div class="wrap">
+        <h1 class="font-display">Every image, one glimpse away.</h1>
+        <p>Search millions of photos by subject, mood, or color.</p>
+
+        <form id="search-form" role="search">
+          <div class="search-field">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="7"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="search-input" name="q" placeholder="Search for images..." autocomplete="off">
+            <button type="submit" id="search-button">
+              <span class="btn-text">Search</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </form>
+
+        <div class="search-hints">
+          <span>Northern lights</span>
+          <span>Minimal interiors</span>
+          <span>Street photography</span>
+          <span>Macro texture</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         CATEGORY BAR
+    ============================================ -->
+    <div class="category-bar-wrap">
+      <div class="wrap">
+        <nav id="category-bar" aria-label="Image categories">
+          <button class="category-chip is-active" data-category="nature">Nature</button>
+          <button class="category-chip" data-category="animals">Animals</button>
+          <button class="category-chip" data-category="cars">Cars</button>
+          <button class="category-chip" data-category="technology">Technology</button>
+          <button class="category-chip" data-category="travel">Travel</button>
+          <button class="category-chip" data-category="food">Food</button>
+          <button class="category-chip" data-category="people">People</button>
+          <button class="category-chip" data-category="architecture">Architecture</button>
+          <button class="category-chip" data-category="sports">Sports</button>
+          <button class="category-chip" data-category="space">Space</button>
+          <button class="category-chip" data-category="fashion">Fashion</button>
+          <button class="category-chip" data-category="abstract">Abstract</button>
+        </nav>
+      </div>
+    </div>
+
+    <!-- ============================================
+         RESULTS
+    ============================================ -->
+    <main class="wrap">
+
+      <div class="results-meta">
+        <span id="results-count">Showing <strong>24,612</strong> results for “nature”</span>
+        <span id="results-sort">Sorted by relevance</span>
+      </div>
+
+      <!-- Primary image grid. JS appends new .image-card elements here on Load More. -->
+      <section id="gallery" aria-live="polite">
+
+        <article class="image-card"><img src="https://picsum.photos/seed/glimpse01/600/800" alt="Nature photo 1" loading="lazy"><div class="card-overlay"></div><span class="card-label">Misty pine ridge</span></article>
+        <article class="image-card"><img src="https://picsum.photos/seed/glimpse02/600/450" alt="Nature photo 2" loading="lazy"><div class="card-overlay"></div><span class="card-label">Coastal cliffs at dusk</span></article>
+        <article class="image-card"><img src="https://picsum.photos/seed/glimpse03/600/700" alt="Nature photo 3" loading="lazy"><div class="card-overlay"></div><span class="card-label">Fern canopy</span></article>
+        <article class="image-card"><img src="https://picsum.photos/seed/glimpse04/600/500" alt="Nature photo 4" loading="lazy"><div class="card-overlay"></div><span class="card-label">Dune shadows</span></article>
+        <article class="image-card"><img src="https://picsum.photos/seed/glimpse05/600/850" alt="Nature photo 5" loading="lazy"><div class="card-overlay"></div><span class="card-label">Alpine lake</span></article>
+        <article class="image-card"><img src="https://picsum.photos/seed/glimpse06/600/600" alt="Nature photo 6" loading="lazy"><div class="card-overlay"></div><span class="card-label">Moss on granite</span></article>
+        <article class="image-card"><img src="https://picsum.photos/seed/glimpse07/600/750" alt="Nature photo 7" loading="lazy"><div class="card-overlay"></div><span class="card-label">Canyon light</span></article>
+        <article class="image-card"><img src="https://picsum.photos/seed/glimpse08/600/480" alt="Nature photo 8" loading="lazy"><div class="card-overlay"></div><span class="card-label">Wheat field wind</span></article>
+        <article class="image-card"><img src="https://picsum.photos/seed/glimpse09/600/820" alt="Nature photo 9" loading="lazy"><div class="card-overlay"></div><span class="card-label">Redwood floor</span></article>
+        <article class="image-card"><img src="https://picsum.photos/seed/glimpse10/600/560" alt="Nature photo 10" loading="lazy"><div class="card-overlay"></div><span class="card-label">River bend</span></article>
+        <article class="image-card"><img src="https://picsum.photos/seed/glimpse11/600/700" alt="Nature photo 11" loading="lazy"><div class="card-overlay"></div><span class="card-label">Frost pattern</span></article>
+        <article class="image-card"><img src="https://picsum.photos/seed/glimpse12/600/500" alt="Nature photo 12" loading="lazy"><div class="card-overlay"></div><span class="card-label">Tide pools</span></article>
+        <article class="image-card"><img src="https://picsum.photos/seed/glimpse13/600/780" alt="Nature photo 13" loading="lazy"><div class="card-overlay"></div><span class="card-label">Volcanic ridge</span></article>
+        <article class="image-card"><img src="https://picsum.photos/seed/glimpse14/600/540" alt="Nature photo 14" loading="lazy"><div class="card-overlay"></div><span class="card-label">Aspen grove</span></article>
+        <article class="image-card"><img src="https://picsum.photos/seed/glimpse15/600/860" alt="Nature photo 15" loading="lazy"><div class="card-overlay"></div><span class="card-label">Glacier crevasse</span></article>
+        <article class="image-card"><img src="https://picsum.photos/seed/glimpse16/600/620" alt="Nature photo 16" loading="lazy"><div class="card-overlay"></div><span class="card-label">Meadow fog</span></article>
+
+      </section>
+
+      <!-- Skeleton / loading state. Toggle with JS by removing "is-hidden" while a request is in flight. -->
+      <section id="skeleton-grid" class="is-hidden" aria-hidden="true">
+        <div class="skeleton-card" style="height:300px;"></div>
+        <div class="skeleton-card" style="height:220px;"></div>
+        <div class="skeleton-card" style="height:340px;"></div>
+        <div class="skeleton-card" style="height:260px;"></div>
+        <div class="skeleton-card" style="height:200px;"></div>
+        <div class="skeleton-card" style="height:320px;"></div>
+        <div class="skeleton-card" style="height:280px;"></div>
+        <div class="skeleton-card" style="height:240px;"></div>
+      </section>
+
+      <!-- Empty results state. Show when a search/category returns zero images. -->
+      <section id="empty-state" class="is-hidden">
+        <div class="state-panel">
+          <svg class="state-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            <line x1="8" y1="11" x2="14" y2="11"></line>
+          </svg>
+          <h3 class="font-display">No images matched</h3>
+          <p>Try a different keyword, or browse one of the categories above.</p>
+        </div>
+      </section>
+
+      <!-- API / network error state. Show when a search or load-more request fails. -->
+      <section id="error-state" class="is-hidden">
+        <div class="state-panel">
+          <svg class="state-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 9v4"></path>
+            <path d="M12 17h.01"></path>
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"></path>
+          </svg>
+          <h3 class="font-display">Couldn't load images</h3>
+          <p>Something went wrong reaching the image service. Check your connection and try again.</p>
+          <button class="state-retry-btn" id="retry-btn" type="button">Try again</button>
+        </div>
+      </section>
+
+      <!-- Load More control. States are driven by the data-state attribute:
+           default | loading | no-more | error -->
+      <div class="load-more-wrap">
+        <button id="load-more-btn" type="button" data-state="default">
+          <span class="btn-spinner"></span>
+          <span class="btn-label-default">Load more images</span>
+          <span class="btn-label-loading">Loading…</span>
+          <span class="btn-label-nomore">No more images</span>
+          <span class="btn-label-error">Error — retry</span>
+        </button>
+      </div>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">Glimpse — image search</div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
