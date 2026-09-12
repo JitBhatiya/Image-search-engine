@@ -380,15 +380,6 @@ img { display: block; max-width: 100%; }
 
 .image-card:hover img { transform: scale(1.045); }
 
-.image-card .card-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55) 100%);
-  opacity: 0;
-  transition: opacity 0.28s ease;
-}
-
-.image-card:hover .card-overlay { opacity: 1; }
 
 .image-card .card-label {
   position: absolute;
