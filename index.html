@@ -11,16 +11,12 @@
 </head>
 <body>
 
-  <!-- Dark/light toggle, CSS-only: this checkbox must stay the
-       immediately-preceding sibling of .site for the theme
-       override in styles.css to work. -->
+  
   <input type="checkbox" id="theme-toggle" class="theme-toggle-input">
 
   <div class="site">
 
-    <!-- ============================================
-         HEADER
-    ============================================ -->
+   
     <header class="site-header">
       <div class="wrap">
         <a href="/" class="logo">Gl<span>i</span>mpse</a>
@@ -39,9 +35,6 @@
       </div>
     </header>
 
-    <!-- ============================================
-         HERO + SEARCH
-    ============================================ -->
     <section class="hero">
       <div class="wrap">
         <h1 class="font-display">Every image, one glimpse away.</h1>
@@ -73,9 +66,7 @@
       </div>
     </section>
 
-    <!-- ============================================
-         CATEGORY BAR
-    ============================================ -->
+  
     <div class="category-bar-wrap">
       <div class="wrap">
         <nav id="category-bar" aria-label="Image categories">
@@ -95,9 +86,6 @@
       </div>
     </div>
 
-    <!-- ============================================
-         RESULTS
-    ============================================ -->
     <main class="wrap">
 
       <div class="results-meta">
@@ -105,15 +93,11 @@
         <span id="results-sort">Sorted by relevance</span>
       </div>
 
-      <!-- Primary image grid. JS appends new .image-card elements here on Load More. -->
-      <section id="gallery" aria-live="polite">
-
-        <!-- <article class="image-card"><img src="https://picsum.photos/seed/glimpse01/600/800" alt="Nature photo 1" loading="lazy"><div class="card-overlay"></div><span class="card-label">Misty pine ridge</span></article> -->
-        
+      
+      <section id="gallery" aria-live="polite">        
 
       </section>
 
-      <!-- Skeleton / loading state. Toggle with JS by removing "is-hidden" while a request is in flight. -->
       <section id="skeleton-grid" class="is-hidden" aria-hidden="true">
         <div class="skeleton-card" style="height:300px;"></div>
         <div class="skeleton-card" style="height:220px;"></div>
@@ -125,7 +109,6 @@
         <div class="skeleton-card" style="height:240px;"></div>
       </section>
 
-      <!-- Empty results state. Show when a search/category returns zero images. -->
       <section id="empty-state" class="is-hidden">
         <div class="state-panel">
           <svg class="state-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -138,7 +121,6 @@
         </div>
       </section>
 
-      <!-- API / network error state. Show when a search or load-more request fails. -->
       <section id="error-state" class="is-hidden">
         <div class="state-panel">
           <svg class="state-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -152,8 +134,7 @@
         </div>
       </section>
 
-      <!-- Load More control. States are driven by the data-state attribute:
-           default | loading | no-more | error -->
+     
       <div class="load-more-wrap">
         <button id="load-more-btn" type="button" data-state="default">
           <span class="btn-spinner"></span>

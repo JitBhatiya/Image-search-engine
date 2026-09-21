@@ -1,11 +1,4 @@
-/* ==================================================================
-   GLIMPSE — image search UI
-   Theme switching is pure CSS: #theme-toggle is a checkbox placed
-   immediately before .site in the DOM. Checking it overrides the
-   custom properties declared on .site via the general sibling
-   combinator, and every descendant re-inherits the new values.
-   No JavaScript required.
-================================================================== */
+
 
 * { box-sizing: border-box; }
 
@@ -26,7 +19,6 @@ img { display: block; max-width: 100%; }
   outline-offset: 3px;
 }
 
-/* visually hide the real checkbox but keep it operable */
 .theme-toggle-input {
   position: absolute;
   width: 1px;
@@ -35,9 +27,6 @@ img { display: block; max-width: 100%; }
   clip: rect(0 0 0 0);
 }
 
-/* ==================================================================
-   THEME TOKENS — dark is the default state (checkbox unchecked)
-================================================================== */
 .site {
   --ink: #121214;
   --ink-soft: #1B1B1F;
@@ -60,7 +49,6 @@ img { display: block; max-width: 100%; }
   transition: background 0.35s ease, color 0.35s ease;
 }
 
-/* light mode overrides */
 #theme-toggle:checked ~ .site {
   --ink: #FAF9F5;
   --ink-soft: #FFFFFF;
@@ -85,10 +73,6 @@ img { display: block; max-width: 100%; }
   margin: 0 auto;
   padding: 0 32px;
 }
-
-/* ==================================================================
-   HEADER
-================================================================== */
 .site-header { padding: 28px 0 0; }
 
 .site-header .wrap {
@@ -125,7 +109,6 @@ img { display: block; max-width: 100%; }
   color: var(--muted-dim);
 }
 
-/* theme toggle switch */
 .theme-toggle-btn {
   position: relative;
   display: inline-flex;
@@ -170,9 +153,6 @@ img { display: block; max-width: 100%; }
   outline-offset: 3px;
 }
 
-/* ==================================================================
-   HERO / SEARCH
-================================================================== */
 .hero {
   position: relative;
   padding: 72px 0 44px;
@@ -282,6 +262,7 @@ img { display: block; max-width: 100%; }
   margin-top: 18px;
   font-size: 13px;
   color: var(--muted-dim);
+  cursor: pointer;
 }
 
 .search-hints span {
@@ -290,9 +271,6 @@ img { display: block; max-width: 100%; }
   border-radius: 999px;
 }
 
-/* ==================================================================
-   CATEGORY BAR
-================================================================== */
 .category-bar-wrap { padding: 30px 0 0; }
 
 #category-bar {
@@ -333,9 +311,7 @@ img { display: block; max-width: 100%; }
   color: #fff;
 }
 
-/* ==================================================================
-   RESULTS META
-================================================================== */
+
 .results-meta {
   display: flex;
   align-items: baseline;
@@ -352,9 +328,6 @@ img { display: block; max-width: 100%; }
   font-weight: 600;
 }
 
-/* ==================================================================
-   GALLERY — masonry via CSS columns
-================================================================== */
 #gallery {
   column-count: 4;
   column-gap: 18px;
@@ -399,7 +372,6 @@ img { display: block; max-width: 100%; }
   transform: translateY(0);
 }
 
-/* fresh items entering the grid via JS should carry this class */
 .image-card.is-entering {
   animation: card-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
@@ -409,9 +381,6 @@ img { display: block; max-width: 100%; }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ==================================================================
-   SKELETON / LOADING STATE
-================================================================== */
 #skeleton-grid {
   column-count: 4;
   column-gap: 18px;
@@ -437,9 +406,6 @@ img { display: block; max-width: 100%; }
   100% { background-position: -50% 0; }
 }
 
-/* ==================================================================
-   EMPTY / ERROR STATES
-================================================================== */
 .state-panel {
   text-align: center;
   padding: 90px 20px;
@@ -487,9 +453,6 @@ img { display: block; max-width: 100%; }
   background: var(--accent-soft);
 }
 
-/* ==================================================================
-   LOAD MORE
-================================================================== */
 .load-more-wrap {
   display: flex;
   justify-content: center;
@@ -567,9 +530,7 @@ img { display: block; max-width: 100%; }
 #load-more-btn[data-state="error"] .btn-label-error { display: inline; }
 .btn-label-error { display: none; }
 
-/* ==================================================================
-   FOOTER
-================================================================== */
+
 .site-footer {
   border-top: 1px solid var(--line-soft);
   padding: 26px 0 40px;
@@ -578,9 +539,6 @@ img { display: block; max-width: 100%; }
   font-size: 13px;
 }
 
-/* ==================================================================
-   RESPONSIVE
-================================================================== */
 @media (max-width: 1024px) {
   #gallery, #skeleton-grid { column-count: 3; }
 }
